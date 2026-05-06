@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Beranda{% endblock %}
+{% block page_title %}HSI Boarding School{% endblock %}
+{% block subtitle %}Website Profil Santri{% endblock %}
+
+{% block content %}
+  <section class="profile-hero">
+    <div class="profile-hero-content">
+      <span class="profile-badge">Profil Digital Santri</span>
+      <h2>Ruang informasi santri yang rapi, ringan, dan mudah diakses.</h2>
+      <p>
+        Selamat datang di website profil santri. Di sini kamu bisa melihat biodata,
+        jadwal harian, dokumentasi kegiatan, dan mengirimkan feedback dengan cepat.
+      </p>
+      <div class="profile-actions">
+        <a class="btn-link" href="{% url 'biodata' %}">Lihat Biodata <span class="arrow">→</span></a>
+        <a class="link-button secondary" href="{% url 'galeri' %}">Buka Galeri</a>
+      </div>
+    </div>
+
+    <div class="profile-summary" aria-label="Ringkasan profil">
+      <div class="summary-avatar">HSI</div>
+      <div>
+        <strong>HSI Boarding School</strong>
+        <span>Website Profil Santri</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="profile-stats" aria-label="Ringkasan konten">
+    <div>
+      <strong>4</strong>
+      <span>Menu Utama</span>
+    </div>
+    <div>
+      <strong>10A</strong>
+      <span>Kelas Santri</span>
+    </div>
+    <div>
+      <strong>24/7</strong>
+      <span>Akses Profil</span>
+    </div>
+  </section>
+
+  <section class="profile-menu">
+    <a href="{% url 'biodata' %}">
+      <span class="menu-number">01</span>
+      <strong>Biodata</strong>
+      <small>Profil lengkap santri, identitas, hobi, cita-cita, dan kontak.</small>
+    </a>
+    <a href="{% url 'jadwal' %}">
+      <span class="menu-number">02</span>
+      <strong>Jadwal</strong>
+      <small>Kegiatan harian santri tersusun jelas agar mudah diikuti.</small>
+    </a>
+    <a href="{% url 'galeri' %}">
+      <span class="menu-number">03</span>
+      <strong>Galeri</strong>
+      <small>Dokumentasi kegiatan dan karya santri selama pembelajaran.</small>
+    </a>
+    <a href="{% url 'feedback' %}">
+      <span class="menu-number">04</span>
+      <strong>Feedback</strong>
+      <small>Kirim kritik, saran, atau masukan untuk pengembangan website.</small>
+    </a>
+  </section>
+{% endblock %}

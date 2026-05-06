@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Form Feedback{% endblock %}
+{% block page_title %}Formulir Umpan Balik{% endblock %}
+{% block subtitle %}Kritik, Saran, dan Masukan{% endblock %}
+
+{% block content %}
+  <section class="card">
+    <h3 class="judul-box">Formulir Kontak & Saran</h3>
+    {% if success_message %}
+      <p class="alert-success">{{ success_message }}</p>
+    {% endif %}
+    <p>
+      Berikan masukan terbaik Anda untuk pengembangan website profil ini.
+      Semua input bersifat wajib kecuali nama.
+    </p>
+
+    <form method="post">
+      {% csrf_token %}
+
+      <label for="nama">Nama Anda (Opsional):</label>
+      <input id="nama" name="nama" type="text" placeholder="Tulis nama Anda">
+
+      <label for="email">Email Anda:</label>
+      <input id="email" name="email" type="email" placeholder="nama@email.com" required>
+
+      <label for="rating">Rating Kepuasan Website (Skala 1-10):</label>
+      <input id="rating" name="rating" type="number" min="1" max="10" placeholder="Masukkan angka 1 hingga 10" required>
+
+      <label>Rekomendasi Website Ini?</label>
+      <div class="form-group">
+        <label><input type="radio" name="rekomendasi" value="sangat" required> Ya, Sangat</label>
+        <label><input type="radio" name="rekomendasi" value="mungkin"> Mungkin Saja</label>
+        <label><input type="radio" name="rekomendasi" value="tidak"> Tidak</label>
+      </div>
+
+      <label>Topik yang paling menarik:</label>
+      <div class="form-group">
+        <label><input type="checkbox" name="topik" value="biodata"> Biodata</label>
+        <label><input type="checkbox" name="topik" value="jadwal"> Jadwal</label>
+        <label><input type="checkbox" name="topik" value="galeri"> Galeri</label>
+      </div>
+
+      <label for="bidang">Saran Pengembangan di Bidang:</label>
+      <select id="bidang" name="bidang" required>
+        <option value="">-- Pilih Bidang --</option>
+        <option value="desain">Desain</option>
+        <option value="konten">Konten</option>
+        <option value="fitur">Fitur</option>
+      </select>
+
+      <label for="pesan">Pesan/Saran Lengkap:</label>
+      <textarea id="pesan" name="pesan" rows="4" placeholder="Tulis pesan dan saran Anda secara detail di sini..." required></textarea>
+
+      <div class="tombol">
+        <button type="reset" class="btn">Atur Ulang</button>
+        <button type="submit" class="btn primary">Kirim Feedback</button>
+      </div>
+    </form>
+  </section>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="https://app.hsiboardingschool.id/logo/logo-single.svg">
+  <title>{% block title %}Website Santri{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}?v=4">
+</head>
+
+{% comment %}
+Kalo deploy ke server, path-nya berubah. Tag static otomatis adjust path
+sesuai environment.
+{% endcomment %}
+
+<body>
+  <header>
+    <div class="header-top">
+      <img class="hsi-logo" src="https://app.hsiboardingschool.id/logo/logo-single.svg" alt="Logo HSI">
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <h1>{% block page_title %}Website Santri{% endblock %}</h1>
+    <h3>{% block subtitle %}Profil Digital{% endblock %}</h3>
+
+    <hr>
+
+    <nav id="mobile-nav" class="mobile-nav">
+      <a href="{% url 'home' %}" {% if request.resolver_match.url_name=='home' %}class="active" {% endif %}>Home</a>
+      <!-- <a href="{% url 'santri_home' %}" {% if request.resolver_match.url_name == 'santri_home' %}class="active"{% endif %}>Beranda</a> -->
+      <a href="{% url 'biodata' %}" {% if request.resolver_match.url_name=='biodata' %}class="active" {% endif
+        %}>Biodata</a>
+      <a href="{% url 'jadwal' %}" {% if request.resolver_match.url_name=='jadwal' %}class="active" {% endif
+        %}>Jadwal</a>
+      <a href="{% url 'galeri' %}" {% if request.resolver_match.url_name=='galeri' %}class="active" {% endif
+        %}>Galeri</a>
+      <a href="{% url 'feedback' %}" {% if request.resolver_match.url_name=='feedback' %}class="active" {% endif
+        %}>Feedback</a>
+    </nav>
+
+    <hr>
+  </header>
+
+  <script>
+    document.getElementById('hamburger-btn').addEventListener('click', function () {
+      const nav = document.getElementById('mobile-nav');
+      const btn = this;
+      nav.classList.toggle('active');
+      btn.classList.toggle('active');
+      btn.setAttribute('aria-expanded', btn.getAttribute('aria-expanded') === 'false' ? 'true' : 'false');
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('#mobile-nav a').forEach(link => {
+      link.addEventListener('click', function () {
+        document.getElementById('mobile-nav').classList.remove('active');
+        document.getElementById('hamburger-btn').classList.remove('active');
+        document.getElementById('hamburger-btn').setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    <p><u>@2026-Profile Santri</u></p>
+  </footer>
+</body>
+
+</html>

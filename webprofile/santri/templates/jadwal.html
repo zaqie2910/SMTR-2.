@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Jadwal Santri{% endblock %}
+{% block page_title %}Jadwal Harian Santri{% endblock %}
+{% block subtitle %}Pekan ini: Materi HTML & CSS{% endblock %}
+
+{% block content %}
+  <section class="card">
+    <h3 class="judul-box">Jadwal Kegiatan Harian</h3>
+    <table class="tabel-jadwal">
+      <thead>
+        <tr>
+          <th>Waktu</th>
+          <th>Kegiatan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>03:30</b></td>
+          <td>Sholat tahajud</td>
+        </tr>
+        <tr>
+          <td><b>05:25</b></td>
+          <td>Sholat subuh & tugas B. Arab</td>
+        </tr>
+        <tr>
+          <td><b>06:00</b></td>
+          <td>Bersih-bersih, stretching, mandi, makan</td>
+        </tr>
+        <tr>
+          <td><b>08:00</b></td>
+          <td>Belajar B. Arab</td>
+        </tr>
+        <tr>
+          <td><b>10:15</b></td>
+          <td>Istirahat</td>
+        </tr>
+        <tr>
+          <td><b>11:45</b></td>
+          <td>Sholat Dzuhur & makan</td>
+        </tr>
+        <tr>
+          <td><b>13:00</b></td>
+          <td>Belajar B. Arab</td>
+        </tr>
+        <tr>
+          <td><b>14:45</b></td>
+          <td>Sholat Asar, istirahat</td>
+        </tr>
+        <tr>
+          <td><b>15:25</b></td>
+          <td>Tugas B. Arab</td>
+        </tr>
+        <tr>
+          <td><b>16:48</b></td>
+          <td>Sholat Magrib</td>
+        </tr>
+        <tr>
+          <td><b>17:59</b></td>
+          <td>Sholat Isya & belajar IT</td>
+        </tr>
+        <tr>
+          <td><b>21:00</b></td>
+          <td>Istirahat / tidur</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+{% endblock %}
