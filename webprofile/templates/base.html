@@ -31,16 +31,15 @@ sesuai environment.
     <hr>
 
     <nav id="mobile-nav" class="mobile-nav">
-      <a href="{% url 'home' %}" {% if request.resolver_match.url_name == 'home' %}class="active" {% endif %}>Home</a>
-      <!-- <a href="{% url 'santri_home' %}" {% if request.resolver_match.url_name == 'santri_home' %}class="active"{% endif %}>Beranda</a> -->
-      <a href="{% url 'biodata' %}" {% if request.resolver_match.url_name == 'biodata' %}class="active" {% endif
-        %}>Biodata</a>
-      <a href="{% url 'jadwal' %}" {% if request.resolver_match.url_name == 'jadwal' %}class="active" {% endif
-        %}>Jadwal</a>
-      <a href="{% url 'galeri' %}" {% if request.resolver_match.url_name == 'galeri' %}class="active" {% endif
-        %}>Galeri</a>
-      <a href="{% url 'feedback' %}" {% if request.resolver_match.url_name == 'feedback' %}class="active" {% endif
-        %}>Feedback</a>
+   <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+
+<a href="{% url 'biodata' %}" class="{% if request.resolver_match.url_name == 'biodata' %}active{% endif %}">Biodata</a>
+
+<a href="{% url 'jadwal' %}" class="{% if request.resolver_match.url_name == 'jadwal' %}active{% endif %}">Jadwal</a>
+
+<a href="{% url 'galeri' %}" class="{% if request.resolver_match.url_name == 'galeri' %}active{% endif %}">Galeri</a>
+
+<a href="{% url 'feedback' %}" class="{% if request.resolver_match.url_name == 'feedback' %}active{% endif %}">Feedback</a>
     </nav>
 
     <hr>
